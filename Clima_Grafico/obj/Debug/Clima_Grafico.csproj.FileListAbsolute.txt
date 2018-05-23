@@ -1,0 +1,11 @@
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\bin\Debug\Clima_Grafico.exe.config
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\bin\Debug\Clima_Grafico.exe
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\bin\Debug\Clima_Grafico.pdb
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\bin\Debug\Newtonsoft.Json.dll
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\bin\Debug\Newtonsoft.Json.xml
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\obj\Debug\Clima_Grafico.csprojResolveAssemblyReference.cache
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\obj\Debug\Clima_Grafico.Form1.resources
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\obj\Debug\Clima_Grafico.Properties.Resources.resources
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\obj\Debug\Clima_Grafico.csproj.GenerateResource.Cache
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\obj\Debug\Clima_Grafico.exe
+c:\users\vis-h\documents\visual studio 2015\Projects\Clima_Grafico\Clima_Grafico\obj\Debug\Clima_Grafico.pdb
