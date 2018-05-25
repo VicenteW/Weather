@@ -58,7 +58,27 @@ namespace Clima_Grafico
                 case 8:
                     BuscarClima("Versalles,co");
                     break;
-
+                case 9:
+                    BuscarClima("Paris,fr");
+                    break;
+                case 10:
+                    BuscarClima("Montreal,ca");
+                    break;
+                case 11:
+                    BuscarClima("Madrid,es");
+                    break;
+                case 12:
+                    BuscarClima("London,gb");
+                    break;
+                case 13:
+                    BuscarClima("Quebec,ca");
+                    break;
+                case 14:
+                    BuscarClima("Shanghai,cn");
+                    break;
+                case 15:
+                    BuscarClima("Tokyo,jp");
+                    break;
             }
         }
 
@@ -84,6 +104,9 @@ namespace Clima_Grafico
             lblTemp.Text = clima.main.temp.ToString() + "°C";
             lblTempMax.Text = "Temperatura maxima: " + clima.main.temp_max.ToString() + "°C";
             lblTempMin.Text = "Temperatura minima: " + clima.main.temp_min.ToString() + "°C";
+            lbl_humedad.Text = "Humedad: " + clima.main.humidity.ToString() + "%";
+            lbl_presion.Text = "Presión: " + clima.main.pressure.ToString() + " hpa";
+            lbl_vel_viento.Text = "Vel. Viento: " + clima.wind.speed.ToString() + " m/s";
             //Elegir icono
             switch (clima.weather[0].icon.ToString())
             {
@@ -151,8 +174,10 @@ namespace Clima_Grafico
             dgvClima.Columns[1].Name = "Temperatura";
             dgvClima.Columns[2].Name = "Temp. Max";
             dgvClima.Columns[3].Name = "Temp. Mix";
-
-            for (int i = 0; i <= 8; i++)
+            dgvClima.Columns[4].Name = "Humedad";
+            dgvClima.Columns[5].Name = "Presión";
+            dgvClima.Columns[6].Name = "Vel. Viento";
+            for (int i = 0; i <= 15; i++)
             {
                 switch (i)
                 {
@@ -183,7 +208,27 @@ namespace Clima_Grafico
                     case 8:
                         ConseguirClimas("Versalles,co");
                         break;
-
+                    case 9:
+                        ConseguirClimas("Paris,fr");
+                        break;
+                    case 10:
+                        ConseguirClimas("Montreal,ca");
+                        break;
+                    case 11:
+                        ConseguirClimas("Madrid,es");
+                        break;
+                    case 12:
+                        ConseguirClimas("London,gb");
+                        break;
+                    case 13:
+                        ConseguirClimas("Quebec,ca");
+                        break;
+                    case 14:
+                        ConseguirClimas("Shanghai,cn");
+                        break;
+                    case 15:
+                        ConseguirClimas("Tokyo,jp");
+                        break;
                 }
             }
         }
@@ -199,7 +244,7 @@ namespace Clima_Grafico
                 var json = reader.ReadToEnd();
                 clima = JsonConvert.DeserializeObject<Clima>(json);
             }
-            dgvClima.Rows.Add(clima.name.ToString(), clima.main.temp.ToString(), clima.main.temp_max.ToString(), clima.main.temp_min.ToString());
+            dgvClima.Rows.Add(clima.name.ToString(), clima.main.temp.ToString(), clima.main.temp_max.ToString(), clima.main.temp_min.ToString(), clima.main.humidity.ToString(), clima.main.pressure.ToString(), clima.wind.speed.ToString());
             
         }
         private void btnArchivo_Click(object sender, EventArgs e)
@@ -215,9 +260,61 @@ namespace Clima_Grafico
             StreamWriter sw = new StreamWriter(@"C:\\Users\\vis-h\\Documents\\Climas\\"+nombre+".txt");
             for (int i = 0; i < dgvClima.Rows.Count - 1; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 7; j++)
                 {
-                    sw.Write(dgvClima.Rows[i].Cells[j].Value.ToString() + "  -  ");
+                    if(j == 1)
+                    {
+                        sw.Write("Temperatura en el momento: ");
+                    }
+                    if (j == 2)
+                    {
+                        sw.Write("Temperatura Máxima del dia: ");
+                    }
+                    if (j == 3)
+                    {
+                        sw.Write("Temperatura Mínima del dia: ");
+                    }
+                    if (j == 4)
+                    {
+                        sw.Write("Humedad del dia: ");
+                    }
+                    if (j == 5)
+                    {
+                        sw.Write("Presión del dia: ");
+                    }
+                    if (j == 6)
+                    {
+                        sw.Write("Vel. viento del dia: ");
+                    }
+                    sw.Write(dgvClima.Rows[i].Cells[j].Value.ToString());
+                    if(j == 1)
+                    {
+                        sw.Write("°C");
+                    }
+                    if (j == 2)
+                    {
+                        sw.Write("°C");
+                    }
+                    if (j == 3)
+                    {
+                        sw.Write("°C");
+                    }
+                    if (j == 4)
+                    {
+                        sw.Write("%");
+                    }
+                    if (j == 5)
+                    {
+                        sw.Write(" hpa");
+                    }
+                    if (j == 6)
+                    {
+                        sw.Write(" m/s");
+                    }
+                    if (j != 6)
+                    {
+                        sw.Write(" - ");
+                    }
                 }
                 sw.WriteLine("");
             }
@@ -225,18 +322,14 @@ namespace Clima_Grafico
             MessageBox.Show("ARCHIVO CREADO");
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < dgvClima.Rows.Count - 1; i++)
-            {
-                if (txtbuscar.Text.Equals(dgvClima.Rows[i].Cells[0].Value.ToString()))
-                {
-                    dgvClima.Rows[i].Selected = true;
-                }
-            }
-        }
+        
 
         private void dgvClima_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblTempMin_Click(object sender, EventArgs e)
         {
 
         }
